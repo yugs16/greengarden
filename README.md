@@ -1,5 +1,5 @@
 # greenproject
-**Demo:** https://tender-swanson-e13e6b.netlify.app/login
+**Demo:** https://tender-swanson-e13e6b.netlify.app
 
 
 ## Project setup
