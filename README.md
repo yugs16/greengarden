@@ -13,7 +13,7 @@ npm run serve
 ```
 
 ### Login/Registeration
-- You can regiter from the registeration form, or
+- You can regiter from the registration form on `/register`, or
 - You can login with this credentials `email: luffy@gmail.com, password: 12345`
 
 ### Compiles and minifies for production
