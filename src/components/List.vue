@@ -26,7 +26,7 @@
       </template>
 
       <template v-slot:no-data>
-        <v-btn color="primary">Reset</v-btn>
+        No Data Available
       </template>
     </v-data-table>
   </v-sheet>

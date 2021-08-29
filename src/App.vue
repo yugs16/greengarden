@@ -51,7 +51,7 @@ export default {
   watch: {
     $route() {
       // clear alert on location change
-      this.clearAlert()
+      // this.clearAlert()
     },
     snackbar(newVal, oldVal) {
       if (!newVal && oldVal === true) this.clearAlert()

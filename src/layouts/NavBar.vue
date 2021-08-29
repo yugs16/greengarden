@@ -14,7 +14,7 @@
     <v-toolbar-title>WebName</v-toolbar-title>
     <v-spacer></v-spacer>
 
-    <div v-if="user">
+    <div v-if="user.id" class="name">
       <span class="mr-2 hwading1">{{ user.name }}</span>
       <v-btn text @click="$emit('logout')">
         Logout
@@ -41,3 +41,11 @@ export default {
   methods: {}
 }
 </script>
+<style scoped>
+.name {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+</style>

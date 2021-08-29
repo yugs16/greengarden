@@ -45,10 +45,11 @@
 
           <v-row justify="center" class="ma-2">
             <v-btn
-              :disabled="!valid"
+              :disabled="loading || !valid"
               color="success"
               class="mr-4"
               @click="handleSubmit"
+              :loading="loading"
             >
               Submit
             </v-btn>
@@ -88,20 +89,15 @@ export default {
     }
   },
   computed: {
-    ...mapState('account', ['status'])
+    ...mapState('account', ['status', 'loading'])
   },
-  // created() {
-  //   // reset login status
-  //   this.logout()
-  // },
   methods: {
     ...mapActions('account', ['register']),
     handleSubmit() {
-      const result = this.validate()
-      console.log(result)
+      const validated = this.validate()
       this.submitted = true
       const { name, pwd, email } = this
-      if (email) {
+      if (validated) {
         this.register({ name, pwd, email })
       }
     },

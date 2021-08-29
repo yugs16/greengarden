@@ -10,7 +10,10 @@ Vue.config.productionTip = false
 
 // setup fake backend
 import { initBackend } from './utils/initBackend'
+import initializeFakeData from './utils/initializeFakeData'
+
 initBackend()
+initializeFakeData()
 
 new Vue({
   store,

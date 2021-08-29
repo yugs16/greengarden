@@ -9,7 +9,7 @@ Vue.use(Router)
 
 function getAccountRoute() {
   const loggedIn = localStorage.getItem('user')
-  // if (!loggedIn) return `/login`
+  if (!loggedIn) return `/login`
   const user = JSON.parse(loggedIn) || {}
 
   return `/account/${user.id}`

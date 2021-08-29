@@ -5,7 +5,7 @@
       <v-form ref="form" v-model="valid" lazy-validation>
         <v-text-field
           v-model="name"
-          :counter="10"
+          :counter="20"
           :rules="nameRules"
           label="Name"
           required
@@ -31,6 +31,7 @@
           :rules="[v => !!v || 'You must agree to continue!']"
           label="Do you agree?"
           required
+          hide-details
         ></v-checkbox>
 
         <v-row justify="end" class="ma-2">
@@ -61,7 +62,8 @@ export default {
       name: '',
       nameRules: [
         v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 15 characters'
+        v =>
+          (v && v.length <= 20) || 'Loan name must be less than 20 characters'
       ],
       amount: null,
       numberOfRepayments: 1,
@@ -82,7 +84,6 @@ export default {
     ...mapActions('loans', ['update', 'fetch']),
     handleSubmit() {
       const result = this.validate()
-      console.log(result)
       if (result) {
         const { amount, name, numberOfRepayments } = this
         this.$emit('input', {
@@ -116,5 +117,9 @@ a {
 }
 a:hover {
   text-decoration: underline;
+}
+
+.v-input--checkbox {
+  margin: 0;
 }
 </style>

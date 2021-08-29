@@ -48,6 +48,8 @@ export default {
           router.replace({ path: `/account/${user.id}` })
         },
         error => {
+          commit('setLoading', false)
+
           commit('loginFailure', error)
           dispatch('app/error', error, { root: true })
         }
@@ -62,16 +64,22 @@ export default {
     register({ dispatch, commit }, user) {
       commit('setLoading', true)
 
-      console.log()
       Services.register(user).then(
         () => {
-          router.push('/')
           setTimeout(() => {
-            // display success message after route change completes
-            dispatch('app/success', 'Registration successful', { root: true })
-          })
+            commit('setLoading', false)
+            dispatch(
+              'app/success',
+              'Registration successful. Please login now.',
+              { root: true }
+            )
+
+            router.push('/')
+          }, 500)
         },
         error => {
+          commit('setLoading', false)
+
           commit('registerFailure', error)
           dispatch('app/error', error, { root: true })
         }
